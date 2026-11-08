@@ -409,6 +409,41 @@
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
+.cart-field input[aria-invalid="true"] {
+  border-color: #b42318;
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.12);
+}
+
+.cart-field-error {
+  color: #b42318;
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.cart-order-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cart-loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: cart-spinner 700ms linear infinite;
+}
+
+@keyframes cart-spinner {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-loading-spinner { animation-duration: 1.5s; }
+}
+
 .continue-checkout-btn {
   margin-top: 8px;
   width: 100%;

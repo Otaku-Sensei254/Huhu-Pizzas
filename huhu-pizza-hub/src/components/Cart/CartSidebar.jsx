@@ -21,6 +21,7 @@ const CartSidebar = () => {
   const [localDeliveryInfo, setLocalDeliveryInfo] = useState(deliveryInfo);
   const [activeStep, setActiveStep] = useState(items.length > 0 ? 'cart' : 'empty');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [deliveryErrors, setDeliveryErrors] = useState({});
 
   useEffect(() => {
     setLocalDeliveryInfo(deliveryInfo);
@@ -30,10 +31,29 @@ const CartSidebar = () => {
     const { name, value } = e.target;
     setLocalDeliveryInfo(prev => ({ ...prev, [name]: value }));
     setDeliveryInfo({ [name]: value });
+    setDeliveryErrors(prev => ({ ...prev, [name]: '' }));
+  };
+
+  const validateDeliveryInfo = () => {
+    const errors = {};
+    if (!localDeliveryInfo.name.trim()) errors.name = 'Enter your name.';
+    if (!localDeliveryInfo.phone.trim()) errors.phone = 'Enter a phone number.';
+    else {
+      const phoneDigits = localDeliveryInfo.phone.replace(/\D/g, '');
+      if (phoneDigits.length < 9 || phoneDigits.length > 15) errors.phone = 'Enter a valid phone number.';
+    }
+    if (!localDeliveryInfo.location.trim()) errors.location = 'Enter your delivery area and address.';
+    setDeliveryErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleDeliveryContinue = (event) => {
+    event.preventDefault();
+    if (validateDeliveryInfo()) setActiveStep('cart');
   };
 
   const handleWhatsAppOrder = () => {
-    if (!localDeliveryInfo.name || !localDeliveryInfo.phone || !localDeliveryInfo.location) {
+    if (!validateDeliveryInfo()) {
       setActiveStep('delivery');
       return;
     }
@@ -100,7 +120,7 @@ const CartSidebar = () => {
                 <p>Where should we drop off your sizzling order?</p>
               </div>
 
-              <form className="cart-address-form" onSubmit={(e) => { e.preventDefault(); setActiveStep('cart'); }}>
+              <form className="cart-address-form" onSubmit={handleDeliveryContinue} noValidate>
                 <div className="cart-field">
                   <label htmlFor="cart-name">Full Name *</label>
                   <input
@@ -111,8 +131,11 @@ const CartSidebar = () => {
                     onChange={handleDeliveryChange}
                     placeholder="e.g. John Doe"
                     required
+                    aria-invalid={Boolean(deliveryErrors.name)}
+                    aria-describedby={deliveryErrors.name ? 'cart-name-error' : undefined}
                     autoComplete="name"
                   />
+                  {deliveryErrors.name && <span className="cart-field-error" id="cart-name-error">{deliveryErrors.name}</span>}
                 </div>
 
                 <div className="cart-field">
@@ -125,8 +148,11 @@ const CartSidebar = () => {
                     onChange={handleDeliveryChange}
                     placeholder="e.g. +254 7XX XXX XXX"
                     required
+                    aria-invalid={Boolean(deliveryErrors.phone)}
+                    aria-describedby={deliveryErrors.phone ? 'cart-phone-error' : undefined}
                     autoComplete="tel"
                   />
+                  {deliveryErrors.phone && <span className="cart-field-error" id="cart-phone-error">{deliveryErrors.phone}</span>}
                 </div>
 
                 <div className="cart-field">
@@ -139,8 +165,11 @@ const CartSidebar = () => {
                     onChange={handleDeliveryChange}
                     placeholder="e.g. Kihara, near Kihara Market, Flat 2"
                     required
+                    aria-invalid={Boolean(deliveryErrors.location)}
+                    aria-describedby={deliveryErrors.location ? 'cart-location-error' : undefined}
                     autoComplete="address-line1"
                   />
+                  {deliveryErrors.location && <span className="cart-field-error" id="cart-location-error">{deliveryErrors.location}</span>}
                 </div>
 
                 <div className="cart-field">
@@ -249,9 +278,10 @@ const CartSidebar = () => {
                   className="btn btn-whatsapp btn-lg cart-order-btn"
                   onClick={handleWhatsAppOrder}
                   disabled={isSubmitting}
+                  aria-busy={isSubmitting}
                 >
                   {isSubmitting ? (
-                    <span>Opening WhatsApp...</span>
+                    <span className="cart-order-loading"><span className="cart-loading-spinner" aria-hidden="true" />Opening WhatsApp...</span>
                   ) : (
                     <>
                       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

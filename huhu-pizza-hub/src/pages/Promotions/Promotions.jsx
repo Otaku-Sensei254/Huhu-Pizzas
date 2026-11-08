@@ -6,7 +6,7 @@ import './Promotions.css';
 const pizzaMenu = menuCategories.find((category) => category.id === 'pizzas')?.items || [];
 const pizzaPhoto = (name) => {
   const item = pizzaMenu.find((pizza) => pizza.name === name);
-  return item ? { src: item.image, alt: `${item.name} pizza` } : null;
+  return item ? { src: item.image, alt: `${item.name} from Huhus Pizza & Grill` } : null;
 };
 
 const Promotions = () => {

@@ -46,12 +46,7 @@ const PageLoader = () => {
       aria-label="Loading Huhus Pizza and Grill"
     >
       <div className="page-loader-brand">
-        <span className="page-loader-mark" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </span>
-        <span className="page-loader-wordmark">Huhus<span>.</span></span>
+        <img className="page-loader-logo" src="/Huhus_logo.png" alt="" width="180" height="88" />
       </div>
       <p className="page-loader-caption">Fresh from the grill</p>
       <div className="page-loader-track" aria-hidden="true"><span /></div>

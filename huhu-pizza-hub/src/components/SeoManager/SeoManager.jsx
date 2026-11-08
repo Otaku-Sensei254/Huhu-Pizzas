@@ -22,6 +22,11 @@ const PAGE_METADATA = {
   },
 };
 
+const NOT_FOUND_METADATA = {
+  title: 'Page not found | Huhus Pizza & Grill',
+  description: 'We could not find that page. Return to Huhus Pizza & Grill or browse our pizza and grill menu in Kitisuru, Nairobi.',
+};
+
 const setMetaContent = (selector, attribute, value) => {
   let element = document.head.querySelector(selector);
   if (!element) {
@@ -38,8 +43,13 @@ const SeoManager = () => {
   useEffect(() => {
     const page = PAGE_METADATA[routePath];
     if (!page) {
-      document.title = 'Page not found | Huhus Pizza & Grill';
+      document.title = NOT_FOUND_METADATA.title;
+      setMetaContent('meta[name="description"]', 'content', NOT_FOUND_METADATA.description);
       setMetaContent('meta[name="robots"]', 'content', 'noindex, follow');
+      setMetaContent('meta[property="og:title"]', 'content', NOT_FOUND_METADATA.title);
+      setMetaContent('meta[property="og:description"]', 'content', NOT_FOUND_METADATA.description);
+      setMetaContent('meta[name="twitter:title"]', 'content', NOT_FOUND_METADATA.title);
+      setMetaContent('meta[name="twitter:description"]', 'content', NOT_FOUND_METADATA.description);
       document.head.querySelector('link[rel="canonical"]')?.remove();
       return;
     }

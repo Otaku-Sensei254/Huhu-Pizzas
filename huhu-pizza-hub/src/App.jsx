@@ -6,12 +6,14 @@ import Hero from './components/Hero/Hero';
 import Menu from './pages/Menu/Menu';
 import Promotions from './pages/Promotions/Promotions';
 import Contact from './pages/Contact/Contact';
+import NotFound from './pages/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
 import CartSidebar from './components/Cart/CartSidebar';
 import SmoothScroll from './components/SmoothScroll/SmoothScroll';
 import ScrollReveal from './components/ScrollReveal/ScrollReveal';
 import PageLoader from './components/PageLoader/PageLoader';
 import SeoManager from './components/SeoManager/SeoManager';
+import CookieBanner from './components/CookieBanner/CookieBanner';
 import ReflectiveCard from './components/ReflectiveCard/ReflectiveCard';
 import pizzaBg1 from './components/Images/pizza-bg1.avif';
 import pizzaBg2 from './components/Images/pizza-bg2.jpg';
@@ -25,6 +27,7 @@ const features = [
     title: 'Flame-Grilled Taste',
     badge: 'Artisan Flame',
     image: pizzaBg1,
+    imageAlt: 'Fresh pizza prepared at Huhus Pizza & Grill',
     description: 'Every chicken piece and handcrafted pizza is cooked over open flames for that authentic smoky savor you cannot fake in an ordinary oven.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -42,6 +45,7 @@ const features = [
     title: 'Unbeatable Value Deals',
     badge: 'Weekly Specials',
     image: pizzaBg2,
+    imageAlt: 'Pepperoni pizza with basil and tomatoes against a dark background',
     description: 'Super Tuesday BOGO, Thunder Thursdaze 50% discounts, and family meal combos designed to feed your crew without breaking the bank.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -54,6 +58,7 @@ const features = [
     title: '25-Min Hot Delivery',
     badge: 'Thermal Speed',
     image: pizzaBg3,
+    imageAlt: 'Handcrafted pizza with fresh toppings served on a dark slate',
     description: 'Fast delivery straight to Kihara, Kitisuru, Nyari, and Lower Kabete. Kept in thermal carriers so every slice arrives bubbling and crisp.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -67,6 +72,7 @@ const features = [
     title: 'Instant WhatsApp Order',
     badge: 'Fast Checkout',
     image: pizzaNobg,
+    imageAlt: 'Pizza topped with pepperoni, vegetables, and melted cheese',
     description: 'No apps to install, no passwords to memorize. Tap, choose your favorites, and order directly on WhatsApp in under 30 seconds.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -113,7 +119,7 @@ const Home = () => (
             >
               <article className="feature-card-inner" data-scroll-reveal>
                 <div className="feature-image-wrapper">
-                  <img src={feature.image} alt={feature.title} className="feature-card-img" />
+                  <img src={feature.image} alt={feature.imageAlt} className="feature-card-img" loading="lazy" decoding="async" />
                   <span className="feature-badge-pill">{feature.badge}</span>
                 </div>
                 <div className="feature-card-content">
@@ -196,6 +202,7 @@ const RoutedPages = () => {
         <Route path="/menu" element={<Menu />} />
         <Route path="/promotions" element={<Promotions />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
@@ -216,6 +223,7 @@ export default function App() {
           </main>
           <Footer />
           <CartSidebar />
+          <CookieBanner />
         </div>
       </Router>
     </CartProvider>

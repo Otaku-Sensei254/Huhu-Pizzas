@@ -12,6 +12,7 @@ const Contact = () => {
     notes: deliveryInfo.notes,
   });
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [fieldErrors, setFieldErrors] = useState({});
 
   useEffect(() => {
     setFormData({
@@ -28,14 +29,26 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
     setDeliveryInfo({ [name]: value });
     setSubmitStatus(null);
+    setFieldErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.location) {
-      setSubmitStatus({ type: 'error', message: 'Please fill in your Name, Phone, and Delivery Location.' });
+    const errors = {};
+    if (!formData.name.trim()) errors.name = 'Enter your name.';
+    if (!formData.phone.trim()) errors.phone = 'Enter a phone number.';
+    else {
+      const phoneDigits = formData.phone.replace(/\D/g, '');
+      if (phoneDigits.length < 9 || phoneDigits.length > 15) errors.phone = 'Enter a valid phone number.';
+    }
+    if (!formData.location.trim()) errors.location = 'Enter your delivery area and street.';
+
+    if (Object.keys(errors).length) {
+      setFieldErrors(errors);
+      setSubmitStatus({ type: 'error', message: 'Please check the highlighted delivery details.' });
       return;
     }
+    setFieldErrors({});
     setSubmitStatus({ type: 'success', message: 'Delivery details saved successfully! Fast checkout ready on WhatsApp.' });
     setTimeout(() => closeCart(), 1500);
   };
@@ -197,9 +210,9 @@ const Contact = () => {
               </p>
             </div>
 
-            <form className="delivery-setup-form" onSubmit={handleSubmit}>
+            <form className="delivery-setup-form" onSubmit={handleSubmit} noValidate>
               {submitStatus && (
-                <div className={`form-feedback ${submitStatus.type}`} role="alert">
+                <div className={`form-feedback ${submitStatus.type}`} role={submitStatus.type === 'error' ? 'alert' : 'status'}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     {submitStatus.type === 'success' ? (
                       <polyline points="20 6 9 17 4 12"/>
@@ -226,8 +239,11 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="e.g. Sarah M."
                     required
+                    aria-invalid={Boolean(fieldErrors.name)}
+                    aria-describedby={fieldErrors.name ? 'name-error' : undefined}
                     autoComplete="name"
                   />
+                  {fieldErrors.name && <span className="form-field-error" id="name-error">{fieldErrors.name}</span>}
                 </div>
                 <div className="form-field">
                   <label htmlFor="phone">Phone Number *</label>
@@ -239,8 +255,11 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="e.g. +254 7XX XXX XXX"
                     required
+                    aria-invalid={Boolean(fieldErrors.phone)}
+                    aria-describedby={fieldErrors.phone ? 'phone-error' : undefined}
                     autoComplete="tel"
                   />
+                  {fieldErrors.phone && <span className="form-field-error" id="phone-error">{fieldErrors.phone}</span>}
                 </div>
               </div>
 
@@ -254,8 +273,11 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="e.g. Kihara, near Kihara Market, House 4B"
                   required
+                  aria-invalid={Boolean(fieldErrors.location)}
+                  aria-describedby={fieldErrors.location ? 'location-error' : undefined}
                   autoComplete="address-line1"
                 />
+                {fieldErrors.location && <span className="form-field-error" id="location-error">{fieldErrors.location}</span>}
               </div>
 
               <div className="form-field">

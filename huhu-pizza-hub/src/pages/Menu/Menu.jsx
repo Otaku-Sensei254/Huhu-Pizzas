@@ -245,7 +245,7 @@ const Menu = () => {
                         <img
                           className="menu-item-image"
                           src={item.image}
-                          alt={`${item.name} pizza`}
+                          alt={`${item.name} from Huhus Pizza & Grill`}
                           loading="lazy"
                           decoding="async"
                           onError={(event) => { event.currentTarget.style.display = 'none'; }}
