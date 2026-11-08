@@ -1,0 +1,25 @@
+{
+  "short_name": "Huhus",
+  "name": "Huhus Pizza & Grill",
+  "icons": [
+    {
+      "src": "Huhus_logo.png",
+      "sizes": "113x96",
+      "type": "image/png"
+    },
+    {
+      "src": "Huhus_icon_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "Huhus_icon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#F7F3EB",
+  "background_color": "#F7F3EB"
+}
