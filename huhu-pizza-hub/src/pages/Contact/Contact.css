@@ -3,30 +3,30 @@
 }
 
 .contact-hero-section {
-  padding: 60px 0 40px;
+  padding: 48px 0 32px;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
 .contact-hero-content {
   text-align: center;
-  max-width: 680px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
 .contact-hero-content .badge {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .contact-content-section {
-  padding: 60px 0 80px;
+  padding: 40px 0 64px;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
-  margin-bottom: 48px;
+  gap: 24px;
+  margin-bottom: 40px;
 }
 
 @media (min-width: 900px) {
@@ -38,37 +38,37 @@
 .contact-card {
   background: var(--surface);
   border-radius: var(--radius-lg);
-  border: 1.5px solid var(--border);
-  padding: 36px 32px;
+  border: 1px solid var(--border);
+  padding: 28px 24px;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
 }
 
 .card-section-title {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.3rem;
+  font-weight: 600;
   color: var(--text);
-  margin-bottom: 24px;
-  padding-bottom: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--border);
 }
 
 .contact-info-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .contact-info-row {
   display: flex;
-  gap: 16px;
+  gap: 14px;
 }
 
 .contact-icon-bubble {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
   background: var(--accent-light);
   color: var(--accent);
   display: flex;
@@ -78,29 +78,36 @@
 }
 
 .contact-icon-bubble svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contact-icon-bubble .whatsapp-brand-icon {
   width: 22px;
   height: 22px;
+  fill: currentColor;
 }
 
 .contact-info-text strong {
   display: block;
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.94rem;
+  font-weight: 500,
   color: var(--text);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .contact-info-text p {
-  font-size: 0.94rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.5;
+  margin: 0;
 }
 
 .phone-link {
   color: var(--text);
-  font-weight: 600;
-  transition: color var(--transition);
+  font-weight: 500;
+  transition: color var(--transition-fast);
 }
 
 .phone-link:hover {
@@ -108,18 +115,19 @@
 }
 
 .support-tag {
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 500;
+  margin-left: 6px;
 }
 
 .inline-accent-link {
   display: inline-block;
   color: var(--accent);
   font-family: var(--font-heading);
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-top: 6px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  margin-top: 5px;
 }
 
 .inline-accent-link:hover {
@@ -130,7 +138,7 @@
 .map-frame {
   border-radius: var(--radius-md);
   overflow: hidden;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   border: 1px solid var(--border);
   aspect-ratio: 16 / 9;
 }
@@ -143,35 +151,35 @@
 
 .coverage-subheading {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 500,
   color: var(--text);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .areas-pill-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 
 .area-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
   background: var(--bg);
   border: 1px solid var(--border);
-  font-size: 0.84rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+  font-weight: 500;
   color: var(--text);
 }
 
 .area-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--accent);
 }
@@ -179,18 +187,18 @@
 .delivery-rate-note {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.86rem;
+  gap: 6px;
+  font-size: 0.8rem;
   color: var(--text-muted);
   background: var(--accent-light);
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-orange-subtle);
 }
 
 .delivery-rate-note svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   color: var(--accent);
   flex-shrink: 0;
 }
@@ -199,56 +207,56 @@
 .delivery-setup-card {
   background: var(--surface);
   border-radius: var(--radius-lg);
-  border: 1.5px solid var(--border-orange);
-  padding: 44px 36px;
+  border: 1px solid var(--border-orange);
+  padding: 36px 28px;
   box-shadow: var(--shadow-md);
-  max-width: 760px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 @media (max-width: 600px) {
   .delivery-setup-card {
-    padding: 32px 20px;
+    padding: 24px 16px;
   }
 }
 
 .form-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .form-header .badge {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .form-title {
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-  font-weight: 800;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .form-subtitle {
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   color: var(--text-muted);
-  max-width: 540px;
+  max-width: 520px;
   margin: 0 auto;
 }
 
 .delivery-setup-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .form-feedback {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 18px;
+  gap: 8px;
+  padding: 10px 14px;
   border-radius: var(--radius-sm);
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-size: 0.86rem;
+  font-weight: 500,
 }
 
 .form-feedback.success {
@@ -264,15 +272,15 @@
 }
 
 .form-feedback svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
 .form-split-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 16px;
 }
 
 @media (min-width: 600px) {
@@ -284,26 +292,26 @@
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .form-field label {
   font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 500,
   color: var(--text);
 }
 
 .form-field input,
 .form-field textarea {
-  padding: 13px 18px;
+  padding: 10px 12px;
   border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   background: var(--bg);
   font-family: var(--font-body);
-  font-size: 0.98rem;
+  font-size: 0.9rem;
   color: var(--text);
-  transition: all var(--transition);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-field input:focus,
@@ -322,8 +330,8 @@
 
 .form-field-error {
   color: #b42318;
-  font-size: 0.82rem;
-  font-weight: 650;
+  font-size: 0.76rem,
+  font-weight: 500,
   line-height: 1.4;
 }
 
@@ -335,5 +343,5 @@
 
 .form-save-btn {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 6px;
 }

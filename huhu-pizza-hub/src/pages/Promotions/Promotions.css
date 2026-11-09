@@ -3,29 +3,29 @@
 }
 
 .promo-hero-section {
-  padding: 60px 0 40px;
+  padding: 48px 0 32px;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
 .promo-hero-content {
   text-align: center;
-  max-width: 680px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
 .promo-hero-content .badge {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .promo-cards-section {
-  padding: 60px 0 80px;
+  padding: 40px 0 64px;
 }
 
 .promo-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 24px;
 }
 
 @media (min-width: 768px) {
@@ -43,25 +43,24 @@
 .promo-card {
   background: var(--surface);
   border-radius: var(--radius-lg);
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .promo-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-orange);
+  border-color: var(--border-orange-subtle);
   box-shadow: var(--shadow-md);
 }
 
 .promo-card-image {
   position: relative;
-  height: 220px;
+  height: 200px;
   overflow: hidden;
-  background: linear-gradient(135deg, #2A211B 0%, #7F351A 100%);
+  background: var(--surface-muted);
 }
 
 .promo-image-grid {
@@ -69,7 +68,7 @@
   inset: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .promo-card-image--catering .promo-image-grid {
@@ -83,141 +82,126 @@
 }
 
 .promo-image-grid img + img {
-  border-left: 2px solid rgba(255, 253, 249, 0.72);
+  border-left: 1px solid var(--border);
 }
 
 .promo-card:hover .promo-image-grid {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .promo-image-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(18, 18, 18, 0.1) 15%, rgba(18, 18, 18, 0.56) 100%);
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.05) 15%, rgba(18, 18, 18, 0.35) 100%);
   pointer-events: none;
 }
 
 .promo-card-header {
   position: absolute;
   z-index: 1;
-  inset: 20px 20px auto;
+  inset: 16px 16px auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.promo-icon-badge {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 253, 249, 0.42);
-  border-radius: 50%;
-  background: rgba(18, 18, 18, 0.46);
-  color: #FFFFFF;
-  font-size: 1.55rem;
-  backdrop-filter: blur(8px);
+  justify-content: flex-end;
 }
 
 .promo-deal-pill {
   background: var(--accent);
   color: #FFFFFF;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
   font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 700;
-  box-shadow: 0 4px 12px var(--accent-glow);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.72rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(200, 82, 26, 0.2);
 }
 
 @media (max-width: 600px) {
   .promo-card-image {
-    height: 190px;
+    height: 170px;
   }
 
   .promo-card-header {
-    inset: 14px 14px auto;
+    inset: 12px 12px auto;
   }
 }
 
 .promo-card-body {
-  padding: 28px 24px;
+  padding: 22px 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .promo-title {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.3rem;
+  font-weight: 600;
   color: var(--text);
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   letter-spacing: -0.02em;
 }
 
 .promo-tagline {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 0.96rem;
+  font-weight: 500;
   color: var(--accent);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .promo-desc {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 24px;
+  line-height: 1.55;
+  margin-bottom: 20px;
 }
 
 .promo-perks {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .perks-title {
   font-family: var(--font-heading);
-  font-size: 0.84rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 500;
   color: var(--text);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
 }
 
 .perks-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
 .perk-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.92rem;
+  gap: 8px;
+  font-size: 0.88rem;
   color: var(--text);
 }
 
 .perk-item svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   color: var(--accent);
   flex-shrink: 0;
 }
 
 .promo-terms-details {
   margin-top: auto;
-  padding-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid var(--border);
 }
 
 .terms-summary {
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+  font-weight: 500,
   color: var(--text-light);
   cursor: pointer;
-  transition: color var(--transition);
+  transition: color var(--transition-fast);
 }
 
 .terms-summary:hover {
@@ -225,14 +209,14 @@
 }
 
 .terms-body {
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
   line-height: 1.5;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .promo-card-footer {
-  padding: 0 24px 28px;
+  padding: 0 20px 22px;
 }
 
 .promo-cta-btn {
@@ -241,17 +225,17 @@
 
 /* Loyalty Banner */
 .promo-loyalty-section {
-  padding-top: 20px;
+  padding-top: 16px;
 }
 
 .loyalty-banner {
-  background: linear-gradient(135deg, var(--surface) 0%, #FAF0E8 100%);
-  border: 1.5px solid var(--border-orange);
+  background: var(--surface);
+  border: 1px solid var(--border-orange);
   border-radius: var(--radius-lg);
-  padding: 48px 36px;
+  padding: 40px 28px;
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
   box-shadow: var(--shadow-md);
 }
 
@@ -259,26 +243,26 @@
   .loyalty-banner {
     flex-direction: column;
     text-align: center;
-    padding: 36px 20px;
+    padding: 32px 20px;
   }
 }
 
 .loyalty-icon-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-lg);
   background: var(--accent-light);
   color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 8px 20px var(--accent-glow);
+  box-shadow: 0 4px 16px rgba(200, 82, 26, 0.15);
 }
 
 .loyalty-icon-circle svg {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
 }
 
 .loyalty-details {
@@ -286,16 +270,16 @@
 }
 
 .loyalty-title {
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-  font-weight: 800;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .loyalty-text {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 24px;
-  max-width: 600px;
+  margin-bottom: 20px;
+  max-width: 580px;
 }

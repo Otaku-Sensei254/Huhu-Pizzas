@@ -6,13 +6,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background:
-    radial-gradient(circle at 50% 44%, rgba(200, 82, 26, 0.08), transparent 26%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   opacity: 1;
   visibility: visible;
-  transition: opacity 320ms ease, visibility 320ms ease;
+  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1), visibility 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .page-loader.is-hiding {
@@ -23,53 +21,52 @@
 .page-loader-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  animation: loader-enter 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  gap: 10px;
+  animation: loader-enter 400ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .page-loader-logo {
   display: block;
-  width: min(180px, 52vw);
+  width: min(160px, 48vw);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(18, 18, 18, 0.12));
 }
 
 .page-loader-caption {
-  margin-top: 18px;
+  margin-top: 14px;
   color: var(--text-muted);
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  animation: loader-enter 620ms 80ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  animation: loader-enter 480ms 60ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .page-loader-track {
-  width: 92px;
-  height: 3px;
+  width: 80px;
+  height: 2px;
   overflow: hidden;
-  margin-top: 26px;
-  border-radius: 99px;
+  margin-top: 20px;
+  border-radius: 2px;
   background: var(--border);
 }
 
 .page-loader-track span {
   display: block;
-  width: 42%;
+  width: 40%;
   height: 100%;
   border-radius: inherit;
   background: var(--accent);
-  animation: loader-progress 900ms ease-in-out infinite;
+  animation: loader-progress 800ms ease-in-out infinite;
 }
 
 @keyframes loader-enter {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes loader-progress {
-  from { transform: translateX(-110%); }
+  from { transform: translateX(-100%); }
   to { transform: translateX(250%); }
 }
 

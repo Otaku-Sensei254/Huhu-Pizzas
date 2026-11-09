@@ -1,0 +1,329 @@
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg);
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  padding: 40px 0 80px;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Subtle overlay for readability */
+.hero-overlay-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    95deg,
+    rgba(247, 243, 235, 1) 0%,
+    rgba(247, 243, 235, 0.98) 40%,
+    rgba(247, 243, 235, 0.9) 70%,
+    rgba(247, 243, 235, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 960px) {
+  .hero-overlay-wash {
+    background: linear-gradient(
+      180deg,
+      rgba(247, 243, 235, 1) 0%,
+      rgba(247, 243, 235, 0.98) 45%,
+      rgba(247, 243, 235, 0.9) 100%
+    );
+  }
+}
+
+/* Banner Wrapper */
+.hero-banner-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 24px;
+}
+
+.hero-alert-pill {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+.alert-sparkle-svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.alert-pill-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 8px;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.alert-pill-link:hover {
+  color: var(--accent-hover);
+  background: var(--accent-light);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .hero-banner-wrapper {
+    margin-bottom: 16px;
+  }
+
+  .hero-alert-pill {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 14px minmax(0, 1fr);
+    align-items: start;
+    gap: 6px 8px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .alert-sparkle-svg {
+    margin-top: 2px;
+  }
+
+  .hero-alert-message {
+    min-width: 0;
+  }
+
+  .alert-pill-link {
+    grid-column: 2;
+    justify-self: start;
+    margin-left: -8px;
+  }
+}
+
+/* Hero Container */
+.hero-container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .hero-container {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+  }
+}
+
+/* Left Content */
+.hero-content {
+  max-width: 580px;
+}
+
+.hero-badge-row {
+  margin-bottom: 14px;
+}
+
+.hero-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid var(--border-orange-subtle);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-sm);
+}
+
+.tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero-heading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+
+.hero-heading-accent {
+  color: var(--accent);
+  display: inline-block;
+}
+
+.hero-copy {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+/* Actions */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.hero-btn-main {
+  box-shadow: 0 2px 8px rgba(200, 82, 26, 0.2);
+}
+
+.hero-btn-alt {
+  background: var(--surface);
+  border: 1.5px solid var(--border-orange);
+  color: var(--text);
+}
+
+.hero-btn-alt:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* Trust Bar */
+.hero-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-pill svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Right Column: Hero Pizza Showcase */
+.hero-pizza-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-pizza-art-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-pizza-art-wrapper::before {
+  display: none;
+}
+
+.hero-art-pizza-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 440px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(18, 18, 18, 0.08)) drop-shadow(0 4px 8px rgba(18, 18, 18, 0.04));
+  border-radius: var(--radius-lg);
+}
+
+.hero-floating-pill-tag {
+  position: absolute;
+  z-index: 2;
+  bottom: 16px;
+  right: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border-orange);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pill-flame-svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .hero-pizza-art-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .hero-floating-pill-tag {
+    bottom: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-section {
+    min-height: auto;
+    padding: 32px 0 64px;
+  }
+  
+  .hero-heading {
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+  }
+  
+  .hero-copy {
+    font-size: 1rem;
+  }
+}
