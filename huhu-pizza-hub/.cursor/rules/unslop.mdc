@@ -1,0 +1,78 @@
+---
+description: Unslop design methodology for Huhu Pizza Hub - crafted, non-template UI
+globs: ["**/*.css", "**/*.jsx", "**/*.js"]
+alwaysApply: true
+---
+
+# Unslop Design Rules
+
+This project follows the **unslop** methodology. Every change must maintain the crafted quality.
+
+## Token System (src/index.css:9-45)
+
+All colors, spacing, radii, fonts go through `:root` tokens. Never use literal values.
+
+```css
+/* Colors */
+--bg: #F7F3EB; --bg-subtle: #EFE9DD; --surface: #FFFDF9;
+--text: #121212; --text-muted: #5A544A; --text-light: #7E766A;
+--accent: #C8521A; --accent-hover: #B24310; --accent-light: #FCEFE7;
+
+/* Spacing - 4px grid */
+--radius-xs: 6px; --radius-sm: 10px; --radius-md: 16px; --radius-lg: 24px;
+
+/* Typography */
+--font-heading: 'Outfit', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif;
+--transition: 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+--transition-fast: 120ms cubic-bezier(0.2, 0.8, 0.2, 1);
+```
+
+## Forbidden Patterns
+
+| Pattern | Instead |
+|---------|---------|
+| `transition: all` | `transition: background-color var(--transition-fast), border-color var(--transition-fast)` |
+| `hover:scale` / `translateY` on hover | Color/surface change only |
+| `font-weight: 800/900` | `font-weight: 600` + size for hierarchy |
+| `text-transform: uppercase` + `letter-spacing` | Sentence case, normal tracking |
+| `#FFFFFF`, `rgba(...)` outside tokens | Use token variables |
+| `9999px` border-radius everywhere | Nested radii scale (6-24px) |
+| Emoji as icons | SVG from one set, text-role color |
+| `animate-pulse`, `animate-ping` | Static, or purposeful motion only |
+| Gradient text, colored glows, radial washes | Solid token colors, neutral shadows |
+
+## Required Patterns
+
+- **Spacing**: All values multiples of 4px (8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80)
+- **Radii**: Nested math — inner = outer - padding (min 4px)
+- **Numbers**: `font-variant-numeric: tabular-nums` on all prices/counts
+- **Focus**: `outline: 2px solid var(--accent); outline-offset: 2px;`
+- **Icons**: 14-22px, 1.5-2px stroke, inherit text color
+- **Copy**: No hype words, no trailing periods on labels/buttons, sentence case
+
+## Accent Usage (Only 3 Places)
+
+1. Primary action buttons (Order on WhatsApp, Save, Claim Deal)
+2. Active navigation/item selection
+3. Signature flame glyph: hero badge, WhatsApp button, hero pizza tag
+
+## Direction Reference
+
+- **Product**: Nairobi grill, WhatsApp ordering, 25-min delivery
+- **Character**: Warm, artisanal, confident
+- **World**: Flames, stone ovens, terracotta, hand-tossed dough
+- **Moments**: Hero pizza photo (grounded), menu line illustrations
+- **Signature**: Flame glyph in 3 places only
+
+## Quality Check
+
+Before committing, run mental checklist:
+- [ ] No literal colors in component CSS
+- [ ] All spacing on 4px grid
+- [ ] No animated layout properties
+- [ ] Weights 400-600 only
+- [ ] No uppercase tracked labels
+- [ ] No emoji in interface
+- [ ] Accent only in 3 signature places
+- [ ] Nested radii correct
+- [ ] Tabular numbers on prices
